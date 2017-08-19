@@ -12,7 +12,7 @@ require './models/ring.rb'
 
 ## Routes
 get '/ring_data' do
-  Ring.all.to_json
+  erb :index
 end
 
 post '/ring_data' do 
