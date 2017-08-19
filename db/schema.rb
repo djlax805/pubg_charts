@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818154838) do
+ActiveRecord::Schema.define(version: 20170819021330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20170818154838) do
   end
 
   create_table "rings", force: :cascade do |t|
+    t.integer "number"
+    t.integer "time"
+    t.integer "players"
   end
 
 end
