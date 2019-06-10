@@ -3,6 +3,8 @@ require 'json'
 require 'sinatra'
 require 'sinatra/activerecord'
 require './config/environments'
+require 'lazy_high_charts'
+include LazyHighCharts::LayoutHelper
 
 ## Debugging gems
 require 'pry'
@@ -10,8 +12,23 @@ require 'pry'
 ## Models
 require './models/ring.rb'
 
+
+def time_data
+binding.pry  
+end
+
+def player_data
+end
+
+def categories
+ arr = Array(1..100)
+ arr.map { |e| e.to_s }
+end
+
 ## Routes
 get '/ring_data' do
+  rings = Ring.where number: 1
+  @data = rings.map { |r| r.players }.sort
   erb :index
 end
 
